@@ -14,6 +14,7 @@ import Login from "./routes/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import AddFriend from "./components/AddFriend";
 import { useEffect, useState } from "react";
+import EditFriend from "./components/EditFriend";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,6 +49,10 @@ function App() {
             <PrivateRoute path='/friends' component={Friends} />
 
             <PrivateRoute path='/add-friends' component={AddFriend} />
+
+            <PrivateRoute path='/edit-friend/:id'>
+              <EditFriend />
+            </PrivateRoute>
           </Switch>
         </main>
       </div>

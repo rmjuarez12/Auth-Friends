@@ -27,19 +27,21 @@ export default function Friends(props) {
   }, []);
 
   const deleteFriend = (id) => {
-    setIsFetching(true);
+    if (window.confirm("Delete the item?")) {
+      setIsFetching(true);
 
-    axiosWithAuth()
-      .delete(`/friends/${id}`)
-      .then((res) => {
-        console.log(res);
-        setFriends(res.data);
-        setIsFetching(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsFetching(false);
-      });
+      axiosWithAuth()
+        .delete(`/friends/${id}`)
+        .then((res) => {
+          console.log(res);
+          setFriends(res.data);
+          setIsFetching(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsFetching(false);
+        });
+    }
   };
 
   return (

@@ -7,7 +7,9 @@ export default function FriendsList(props) {
       <div className='name'>{props.friend.name}</div>
       <div className='email'>{props.friend.email}</div>
       <div className='buttons'>
-        <button>Edit</button>
+        <a className='button' href={`/edit-friend/${props.friend.id}`}>
+          Edit
+        </a>
         <button
           className='logout'
           onClick={() => props.deleteFriend(props.friend.id)}
