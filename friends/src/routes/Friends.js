@@ -5,6 +5,9 @@ import FriendsList from "../components/FriendsList";
 // Import Utils
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+// Import Assets
+import loading from "../assets/loading.png";
+
 export default function Friends(props) {
   //* State with friends list
   const [friends, setFriends] = useState([]);
@@ -48,7 +51,10 @@ export default function Friends(props) {
     <div id='friends'>
       <h2>My Friends</h2>
       {isFetching ? (
-        "Data Fetching..."
+        <div className='loading'>
+          <img src={loading} alt='' />
+          <p>Loading Friends...</p>
+        </div>
       ) : (
         <ul className='friends-list'>
           {friends.length > 0 &&
