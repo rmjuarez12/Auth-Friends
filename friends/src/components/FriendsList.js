@@ -4,8 +4,17 @@ import React from "react";
 export default function FriendsList(props) {
   return (
     <li>
-      <span className='name'>{props.friend.name}</span>
-      <span className='email'>{props.friend.email}</span>
+      <div className='name'>{props.friend.name}</div>
+      <div className='email'>{props.friend.email}</div>
+      <div className='buttons'>
+        <button>Edit</button>
+        <button
+          className='logout'
+          onClick={() => props.deleteFriend(props.friend.id)}
+        >
+          Delete
+        </button>
+      </div>
     </li>
   );
 }

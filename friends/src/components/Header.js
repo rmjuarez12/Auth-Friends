@@ -31,7 +31,9 @@ function Header(props) {
   return (
     <header>
       <div id='logo'>
-        <h1>RickBook</h1>
+        <h1>
+          Rick<span>Book</span>
+        </h1>
       </div>
 
       <div className='navigation'>
@@ -44,7 +46,10 @@ function Header(props) {
         </nav>
 
         <div className='login'>
-          <button onClick={manageLoginBtn}>
+          <button
+            onClick={manageLoginBtn}
+            className={isLoggedIn ? "logout" : "login"}
+          >
             {isLoggedIn ? "Logout" : "Login"}
           </button>
         </div>

@@ -49,12 +49,14 @@ function Login(props) {
 
   return (
     <div>
+      <h2>Login</h2>
       <form onSubmit={handleSubmission}>
         <input
           type='text'
           name='username'
           value={loginInfo.username}
           onChange={handleChange}
+          placeholder='Username'
         />
 
         <input
@@ -62,9 +64,10 @@ function Login(props) {
           name='password'
           value={loginInfo.password}
           onChange={handleChange}
+          placeholder='Password'
         />
 
-        <button disabled={isSubmitting}>Submit</button>
+        <button disabled={isSubmitting}>Login</button>
       </form>
     </div>
   );

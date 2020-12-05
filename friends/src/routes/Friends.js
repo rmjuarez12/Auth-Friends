@@ -26,15 +26,38 @@ export default function Friends(props) {
       });
   }, []);
 
+  const deleteFriend = (id) => {
+    setIsFetching(true);
+
+    axiosWithAuth()
+      .delete(`/friends/${id}`)
+      .then((res) => {
+        console.log(res);
+        setFriends(res.data);
+        setIsFetching(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsFetching(false);
+      });
+  };
+
   return (
     <div id='friends'>
+      <h2>My Friends</h2>
       {isFetching ? (
         "Data Fetching..."
       ) : (
-        <ul>
+        <ul className='friends-list'>
           {friends.length > 0 &&
             friends.map((friend) => {
-              return <FriendsList key={friend.id} friend={friend} />;
+              return (
+                <FriendsList
+                  key={friend.id}
+                  friend={friend}
+                  deleteFriend={deleteFriend}
+                />
+              );
             })}
         </ul>
       )}

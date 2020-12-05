@@ -37,17 +37,19 @@ function App() {
       <div className='App'>
         <Header isLoggedIn={isLoggedIn} userLoggedIn={userLoggedIn} />
 
-        <Switch>
-          <Route exact path='/' component={Homepage} />
+        <main>
+          <Switch>
+            <Route exact path='/' component={Homepage} />
 
-          <Route path='/login'>
-            <Login userLoggedIn={userLoggedIn} />
-          </Route>
+            <Route path='/login'>
+              <Login userLoggedIn={userLoggedIn} />
+            </Route>
 
-          <PrivateRoute path='/friends' component={Friends} />
+            <PrivateRoute path='/friends' component={Friends} />
 
-          <PrivateRoute path='/add-friends' component={AddFriend} />
-        </Switch>
+            <PrivateRoute path='/add-friends' component={AddFriend} />
+          </Switch>
+        </main>
       </div>
     </Router>
   );
